@@ -1,0 +1,63 @@
+#!/bin/sh
+
+FG='#afff14'   # fluroscent yellow
+B='#00000000'  # blank
+C='#a8998422'  # clear ish
+D='#928374ff'  # default
+T='#ebdbb2ff'  # text
+W='#12A2BAff'  # wrong
+V='#458588ff'  # verifying
+BL='#000000ff' # black
+BG='#282828ff' # background color
+BAR='#ffffffff' # bar background color
+
+setxkbmap us && \
+/usr/bin/i3lock \
+--color=$T   \
+--insidevercolor=$C   \
+--ringvercolor=$V     \
+\
+--insidewrongcolor=$C \
+--ringwrongcolor=$W   \
+\
+--insidecolor=$B      \
+--ringcolor=$D        \
+--linecolor=$B        \
+--separatorcolor=$D   \
+\
+--verifcolor=$BL        \
+--wrongcolor=$BL        \
+--timecolor=$FG        \
+--datecolor=$FG        \
+--layoutcolor=$T      \
+--keyhlcolor=$W       \
+--bshlcolor=$BAR        \
+--bar-color=$B \
+\
+--image="$HOME/.wallpaper/wallpaper.jpg" \
+--screen 1            \
+--bar-indicator            \
+--bar-position="1060"          \
+--clock               \
+--timestr="%I:%M %P"  \
+--datestr="%d %b %Y" \
+--datepos="1900:1020" \
+--timepos="1900:960" \
+--time-align 2 \
+--date-align 2 \
+--timesize="72" \
+--datesize="36" \
+--blur=5 \
+--noinputtext="NO INPUT" \
+--veriftext="VERIFYING" \
+--wrongtext="ACCESS DENIED" \
+#--noinputtext="" \
+#--veriftext="" \
+#--wrongtext="" \
+#--no-verify \
+#--keylayout 0         \
+#--textsize=20 \
+# --modsize=10
+# --timefont=comic-sans
+# --datefont=monofur
+# etc
