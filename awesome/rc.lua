@@ -784,6 +784,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Startup
 
-awful.spawn.with_shell("compton")
+awful.spawn.with_shell("compton -f")
 awful.spawn.with_shell("wallpaper")
 awful.spawn.with_shell("nm-applet")
