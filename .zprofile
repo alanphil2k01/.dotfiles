@@ -1,5 +1,4 @@
 #!/bin/zsh
-
 # zsh profile file. Runs on login. Environmental variables are set here.
 
 # If you don't plan on reverting to bash, you can remove the link in ~/.profile
@@ -9,7 +8,7 @@
 export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 
 # Default programs:
-export EDITOR="nvim"
+export EDITOR="vim"
 export TERMINAL="terminator"
 export BROWSER="brave"
 export READER="zathura"
@@ -113,13 +112,18 @@ ex=🎯:\
 
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ] && shortcuts >/dev/null 2>&1 &
 
-if pacman -Qs libxft-bgra >/dev/null 2>&1; then
-	# Start graphical server on tty1 if not already running.
-	[ "$(tty)" = "/dev/tty1" ] && ! pidof Xorg >/dev/null 2>&1  && exec startx
-else
-	echo "\033[31mIMPORTANT\033[0m: Note that \033[32m\`libxft-bgra\`\033[0m must be installed for this build of dwm.
-Please run:
-	\033[32myay -S libxft-bgra-git\033[0m
-and replace \`libxft\`"
+[[ -f $ZDOTDIR/.zshrc ]] && source $ZDOTDIR/.zshrc
+
+if [[ "$(tty)" = "/dev/tty1" ]]; then
+    exec startx
 fi
+#if pacman -Qs libxft-bgra >/dev/null 2>&1; then
+#	# Start graphical server on tty1 if not already running.
+#	[ "$(tty)" = "/dev/tty1" ] && ! pidof Xorg >/dev/null 2>&1  && exec startx
+#else
+#	echo "\033[31mIMPORTANT\033[0m: Note that \033[32m\`libxft-bgra\`\033[0m must be installed for this build of dwm.
+#Please run:
+#	\033[32myay -S libxft-bgra-git\033[0m
+#and replace \`libxft\`"
+#fi
 
