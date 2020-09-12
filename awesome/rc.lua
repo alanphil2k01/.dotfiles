@@ -90,7 +90,7 @@ local chosen_theme = themes[7]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "terminator"
-local vi_focus     = false -- vi-like client focus - https://github.com/lcpz/awesome-copycats/issues/275
+local vi_focus     = true -- vi-like client focus - https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true -- cycle trough all previous client or just the first -- https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "vim"
 local gui_editor   = os.getenv("GUI_EDITOR") or "gvim"
@@ -98,7 +98,7 @@ local browser      = os.getenv("BROWSER") or "brave"
 
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "1", "2", "3", "4", "5", "6" }
+awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
     --awful.layout.suit.floating,
     awful.layout.suit.tile,
@@ -524,7 +524,10 @@ globalkeys = my_table.join(
               {description = "run browser", group = "launcher"}),
     awful.key({ modkey }, "a", function () awful.spawn(gui_editor) end,
               {description = "run gui editor", group = "launcher"}),
-
+    awful.key({ modkey }, "r", function () awful.util.spawn("terminator -e lf") end,
+              {description = "run file explorer", group = "launcher"}),
+    awful.key({ modkey }, "e", function () awful.util.spawn("terminator -e newsboat") end,
+              {description = "run newsboat", group = "launcher"}),
     -- Default
     --[[ Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
@@ -548,7 +551,7 @@ globalkeys = my_table.join(
     --]]
     -- Prompt
     --awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
-    awful.key({  modkey }, "r", function () awful.util.spawn("dmenu_run") end,
+    awful.key({  modkey }, "d", function () awful.util.spawn("dmenu_run") end,
     		{description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
@@ -783,4 +786,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 awful.spawn.with_shell("compton")
 awful.spawn.with_shell("wallpaper")
-awful.spawn.with_shell("sh $HOME/.config/awesome/startup.sh")
+awful.spawn.with_shell("nm-applet")

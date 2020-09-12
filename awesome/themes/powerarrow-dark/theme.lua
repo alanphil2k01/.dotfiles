@@ -315,7 +315,6 @@ function theme.at_screen_connect(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
         layout = wibox.layout.fixed.horizontal,
-        wibox.widget.systray(),
         --spr,
         --arrl_ld,
         --wibox.container.background(mpdicon, theme.bg_focus),
@@ -349,6 +348,7 @@ function theme.at_screen_connect(s)
         spr,
         arrl_ld,
         wibox.container.background(s.mylayoutbox, theme.bg_focus),
+        wibox.widget.systray(),
         },
     }
 end
