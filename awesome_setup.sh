@@ -13,7 +13,7 @@ cd dotfiles-awesome
 # Copying configs
 clear
 echo "Copyting configs to ~/.config directory"
-cp -r awesome lf mpv newsboat terminator zathura zsh aliasrc shortcutrc zshnameddirrc $HOME/.config/
+cp -r awesome lf mpv newsboat alacritty terminator zathura zsh aliasrc shortcutrc zshnameddirrc $HOME/.config/
 
 # Copying scripts
 clear
