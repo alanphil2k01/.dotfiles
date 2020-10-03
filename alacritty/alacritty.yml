@@ -241,7 +241,7 @@ colors:
   #  white:   '#c5c8c6'
   normal:
     black:   '#1d1f21'
-    red:     '#cc3333'
+    red:     '#b22222'
     green:   '#2FEC36'
     yellow:  '#FFFF4C'
     blue:    '#7f7fff'
