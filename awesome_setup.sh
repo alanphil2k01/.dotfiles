@@ -4,6 +4,11 @@ HOME="/home/$1"
 
 cd $HOME
 
+if [[ $# -eq 0 ]]; then
+    echo "Usage ./awesome_setup.sh <your username>"
+    exit
+fi
+
 #cloning repo
 clear
 echo "Cloning Repository"
@@ -14,6 +19,10 @@ cd dotfiles-awesome
 clear
 echo "Copyting configs to ~/.config directory"
 cp -r awesome lf mpv newsboat alacritty terminator zathura zsh aliasrc shortcutrc zshnameddirrc $HOME/.config/
+
+# Cloning awesome-wm-widgets
+clear
+git clone https://github.com/streetturtle/awesome-wm-widgets.git $HOME/.config/awesome/
 
 # Copying scripts
 clear
