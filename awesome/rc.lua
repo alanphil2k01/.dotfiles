@@ -22,6 +22,8 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
                       require("awful.hotkeys_popup.keys")
 local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 local dpi           = require("beautiful.xresources").apply_dpi
+-- Spotify-shell
+local spotify_shell = require("awesome-wm-widgets.spotify-shell.spotify-shell")
 -- }}}
 
 -- {{{ Error handling
@@ -89,7 +91,7 @@ local themes = {
 local chosen_theme = themes[7]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "terminator"
+local terminal     = "alacritty"
 local vi_focus     = true -- vi-like client focus - https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true -- cycle trough all previous client or just the first -- https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "vim"
@@ -276,6 +278,8 @@ globalkeys = my_table.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
+    -- Spotify
+    awful.key({ modkey,        }, "a", function () spotify_shell.launch() end, {description = "spotify shell", group = "music"}),
     -- Non-empty tag browsing
     --awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end,
     --          {description = "view  previous nonempty", group = "tag"}),
@@ -522,11 +526,11 @@ globalkeys = my_table.join(
     -- User programs
     awful.key({ modkey }, "b", function () awful.spawn(browser) end,
               {description = "run browser", group = "launcher"}),
-    awful.key({ modkey }, "a", function () awful.spawn(gui_editor) end,
-              {description = "run gui editor", group = "launcher"}),
-    awful.key({ modkey }, "r", function () awful.util.spawn("terminator -e lf") end,
+  --  awful.key({ modkey }, "a", function () awful.spawn(gui_editor) end,
+   --           {description = "run gui editor", group = "launcher"}),
+    awful.key({ modkey }, "r", function () awful.util.spawn("alacritty -e lf") end,
               {description = "run file explorer", group = "launcher"}),
-    awful.key({ modkey }, "e", function () awful.util.spawn("terminator -e newsboat") end,
+    awful.key({ modkey }, "e", function () awful.util.spawn("alacritty -e newsboat") end,
               {description = "run newsboat", group = "launcher"}),
     -- Default
     --[[ Menubar

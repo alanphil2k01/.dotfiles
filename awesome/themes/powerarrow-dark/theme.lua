@@ -17,7 +17,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-dark"
 --theme.wallpaper                                 = theme.dir .. "/wall.png"
-theme.font                                      = "Terminus 9"
+theme.font                                      = "DejaVu 12"
 theme.fg_normal                                 = "#DDDDFF"
 theme.fg_focus                                  = "#FFEA6B"
 theme.fg_urgent                                 = "#CC9393"
@@ -268,6 +268,52 @@ local spr     = wibox.widget.textbox(' ')
 local arrl_dl = separators.arrow_left(theme.bg_focus, "alpha")
 local arrl_ld = separators.arrow_left("alpha", theme.bg_focus)
 
+-- CPU widger 2
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+local cp = cpu_widget({
+    width = 70,
+    step_width = 2,
+    step_spacing = 0,
+    color = '#DDDDFF'
+})
+
+-- Battery widger 2
+local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
+local batt = batteryarc_widget({
+            show_current_level = true,
+            arc_thickness = 1,
+})
+
+-- Brightness widget
+local brightnessarc_widget = require("awesome-wm-widgets.brightnessarc-widget.brightnessarc")
+local bright = brightnessarc_widget({})
+
+local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
+
+local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
+mytextclock = wibox.widget.textclock()
+local cw = calendar_widget({
+    theme = 'outrun',
+    placement = 'bottom_right'
+})
+
+-- Spotify
+local spotify_widget = require("awesome-wm-widgets.spotify-widget.spotify")
+local spotify = spotify_widget({
+    font = 'DejaVu 10',
+    play_icon = '/usr/share/icons/Papirus-Light/24x24/categories/spotify.svg',
+    pause_icon = '/usr/share/icons/Papirus-Dark/24x24/panel/spotify-indicator.svg',
+    dim_when_paused = true,
+    dim_opacity = 0.5,
+    max_length = -1,
+    show_tooltip = true
+})
+-- Clock
+mytextclock:connect_signal("button:press",
+    function(_, _, _, button)
+        if button == 1 then cw.toggle() end
+    end)
+
 function theme.at_screen_connect(s)
     -- Quake application
     s.quake = lain.util.quake({ app = awful.util.terminal })
@@ -327,10 +373,12 @@ function theme.at_screen_connect(s)
         --wibox.container.background(theme.mail.widget, theme.bg_focus),
         arrl_dl,
         memicon, 
+        --ram_widget(),
         mem.widget, 
         arrl_ld,
         wibox.container.background(cpuicon, theme.bg_focus),
-        wibox.container.background(cpu.widget, theme.bg_focus),
+        wibox.container.background(cp, theme.bg_focus),
+        --wibox.container.background(cpu.widget, theme.bg_focus),
         --arrl_dl,
         --tempicon,
         --temp.widget,
@@ -338,16 +386,18 @@ function theme.at_screen_connect(s)
         --wibox.container.background(fsicon, theme.bg_focus),
         --wibox.container.background(theme.fs.widget, theme.bg_focus),
         arrl_dl,
-        baticon,
-        bat.widget,
+        --baticon,
+        --bat.widget,
+        spr,
+        spr,
+        batt,
         arrl_ld,
-        wibox.container.background(neticon, theme.bg_focus),
-        wibox.container.background(net.widget, theme.bg_focus),
+        wibox.container.background(spotify, theme.bg_focus),
+        --wibox.container.background(neticon, theme.bg_focus),
+        --wibox.container.background(net.widget, theme.bg_focus),
         arrl_dl,
         clock,
-        spr,
         arrl_ld,
-        wibox.container.background(s.mylayoutbox, theme.bg_focus),
         wibox.widget.systray(),
         },
     }
