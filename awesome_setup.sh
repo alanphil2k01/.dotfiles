@@ -20,10 +20,6 @@ clear
 echo "Copyting configs to ~/.config directory"
 cp -r awesome lf mpv newsboat alacritty terminator zathura zsh aliasrc shortcutrc zshnameddirrc $HOME/.config/
 
-# Cloning awesome-wm-widgets
-clear
-git clone https://github.com/streetturtle/awesome-wm-widgets.git $HOME/.config/awesome/
-
 # Copying scripts
 clear
 echo "Copying scripts to ~/.local/bin directory"
