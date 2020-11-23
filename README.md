@@ -35,6 +35,7 @@ mpv   \
 neovim      \
 newsboat   \
 noto-fonts-emoji   \
+perl-file-mimeinfo   \
 python-pillow   \
 xorg-xinit   \
 zathura   \
