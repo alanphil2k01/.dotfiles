@@ -8,8 +8,8 @@
 export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 
 # Default programs:
-export EDITOR="vim"
-export TERMINAL="terminator"
+export EDITOR="nvim"
+export TERMINAL="alacritty"
 export BROWSER="brave"
 export READER="zathura"
 
@@ -21,6 +21,13 @@ export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
+
+# Golang
+# export GOROOT="/usr/local/go"
+# export PATH="$PATH:$GOROOT/bin"
+# export GOPATH="$HOME/Projects/go"
+# export PATH="$PATH:$GOPATH/bin"
+# export GOPATH="$GOPATH:$HOME/Projects/my_go"
 
 # Other program settings:
 export DICS="/usr/share/stardict/dic/"
@@ -117,13 +124,3 @@ ex=🎯:\
 if [[ "$(tty)" = "/dev/tty1" ]]; then
     exec startx
 fi
-#if pacman -Qs libxft-bgra >/dev/null 2>&1; then
-#	# Start graphical server on tty1 if not already running.
-#	[ "$(tty)" = "/dev/tty1" ] && ! pidof Xorg >/dev/null 2>&1  && exec startx
-#else
-#	echo "\033[31mIMPORTANT\033[0m: Note that \033[32m\`libxft-bgra\`\033[0m must be installed for this build of dwm.
-#Please run:
-#	\033[32myay -S libxft-bgra-git\033[0m
-#and replace \`libxft\`"
-#fi
-

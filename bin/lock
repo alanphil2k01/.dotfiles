@@ -51,6 +51,7 @@ setxkbmap us && \
 --noinputtext="NO INPUT" \
 --veriftext="VERIFYING" \
 --wrongtext="ACCESS DENIED" \
+--pointer=default \
 #--noinputtext="" \
 #--veriftext="" \
 #--wrongtext="" \

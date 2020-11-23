@@ -99,8 +99,8 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    #family: MesloLGS NF
-    family: DejaVu Sans Mono
+    family: MesloLGS NF
+    #family: DejaVu Sans Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -112,8 +112,8 @@ font:
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monospace
-    #family: MesloLGS NF
-    family: DejaVu Sans Mono
+    family: MesloLGS NF
+    #family: DejaVu Sans Mono
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -125,8 +125,8 @@ font:
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monospace
-    #family: MesloLGS NF
-    family: DejaVu Sans Mono
+    family: MesloLGS NF
+    #family: DejaVu Sans Mono
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -137,8 +137,8 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
-    family: DejaVu Sans Mono
+    family: MesloLGS NF
+    #family: DejaVu Sans Mono
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
@@ -201,9 +201,9 @@ colors:
   #
   # Allowed values are CellForeground and CellBackground, which reference the
   # affected cell, or hexadecimal colors like #ff00ff.
-  #vi_mode_cursor:
-  #  text: CellBackground
-  #  cursor: CellForeground
+  vi_mode_cursor:
+    text: CellBackground
+    cursor: CellForeground
 
   # Selection colors
   #
@@ -347,7 +347,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.7
+background_opacity: 0.92
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -371,7 +371,7 @@ cursor:
   # the style of the active value of the normal cursor.
   #
   # See `cursor.style` for available options.
-  #vi_mode_style: None
+  # vi_mode_style: Block
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
