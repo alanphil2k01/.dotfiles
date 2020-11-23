@@ -31,8 +31,8 @@ gruvbox-material-gtk-theme-git   \
 gruvbox-material-icon-theme-git   \
 i3lock-color-git   \
 lf-git   \
-mpd   \
 mpv   \
+neovim      \
 newsboat   \
 noto-fonts-emoji   \
 python-pillow   \
@@ -48,7 +48,9 @@ zsh-fast-syntax-highlighting
 
 #### Extras
 
-neovim      \
+lxappearance  \
+mpd   \
+pavucontrol  \
 spotify     \
 terminator  \
 vim
