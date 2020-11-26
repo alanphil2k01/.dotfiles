@@ -17,7 +17,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-dark"
 --theme.wallpaper                                 = theme.dir .. "/wall.png"
-theme.font                                      = "MesloLGS NF 12"
+theme.font                                      = "MesloLGS NF 11"
 theme.fg_normal                                 = "#DDDDFF"
 theme.fg_focus                                  = "#FFEA6B"
 theme.fg_urgent                                 = "#CC9393"
@@ -94,7 +94,7 @@ local separators = lain.util.separators
 -- Textclock
 local clockicon = wibox.widget.imagebox(theme.widget_clock)
 local clock = awful.widget.watch(
-    "date +'%a %d %b %r'", 60,
+    "date +'%a %d %b %r'", 1,
     function(widget, stdout)
         widget:set_markup(" " .. markup.font(theme.font, stdout))
     end
@@ -386,19 +386,21 @@ function theme.at_screen_connect(s)
         --wibox.container.background(fsicon, theme.bg_focus),
         --wibox.container.background(theme.fs.widget, theme.bg_focus),
         arrl_dl,
+        spr,
+        spr,
         --baticon,
         --bat.widget,
-        spr,
-        spr,
         batt,
         arrl_ld,
-        wibox.container.background(spotify, theme.bg_focus),
-        --wibox.container.background(neticon, theme.bg_focus),
-        --wibox.container.background(net.widget, theme.bg_focus),
+        wibox.container.background(neticon, theme.bg_focus),
+        wibox.container.background(net.widget, theme.bg_focus),
         arrl_dl,
         clock,
         arrl_ld,
-        wibox.widget.systray(),
+        wibox.container.background(spotify, theme.bg_focus),
+        arrl_dl,
+        wibox.container.background(wibox.widget.systray(), theme.bg_focus),
+        
         },
     }
 end
