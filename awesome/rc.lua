@@ -788,7 +788,9 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Startup
 
-awful.spawn.with_shell("compton -f")
-awful.spawn.with_shell("wallpaper")
+awful.spawn.with_shell("compton -f -i 1.0 -b")
 awful.spawn.with_shell("lock")
 awful.spawn.with_shell("nm-applet")
+awful.spawn.with_shell("sleep 0.5 && feh --bg-scale ~/.config/awesome/wallpapers/sample_wallpaper.jpg") -- If wallpaper is not set increase timer for sleep
+-- Sets wallpaper to the sample wallpaper change path to your preferred image or comment this line and uncomment the line below to use wallpaper-reddit
+-- awful.spawn.with_shell("wallpaper")
