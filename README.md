@@ -18,7 +18,7 @@ sh awesome_setup.sh <your user name>
 
 ### Packages
 
-#### Required
+#### Required (sort of)
 
 acpi   \
 alacritty-git   \
@@ -36,16 +36,11 @@ neovim      \
 newsboat   \
 noto-fonts-emoji   \
 perl-file-mimeinfo   \
-python-pillow   \
 xorg-xinit   \
 zathura   \
 zsh   \
 zsh-autosuggestions   \
 zsh-fast-syntax-highlighting
-
-### From Github
-
-[wallpaper-reddit](https://github.com/markubiak/wallpaper-reddit)
 
 #### Extras
 
@@ -55,3 +50,8 @@ pavucontrol  \
 spotify     \
 terminator  \
 vim
+
+#### From Github
+
+[wallpaper-reddit](https://github.com/markubiak/wallpaper-reddit) with python-pillow
+

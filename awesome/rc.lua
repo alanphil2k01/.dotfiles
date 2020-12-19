@@ -264,6 +264,8 @@ globalkeys = my_table.join(
               {description = "take a screenshot of the whole screen", group = "hotkeys"}),
 
     -- X screen locker
+    awful.key({  }, "XF86PowerOff", function () awful.util.spawn("lock && systemctl suspend") end, --NOTE set HandlePowerKey=ignore in /etc/systemd/logind.conf
+              {description = "lock screen", group = "hotkeys"}),
     awful.key({ modkey, "Shift" }, "e", function () awful.util.spawn("lock") end,
               {description = "lock screen", group = "hotkeys"}),
 
