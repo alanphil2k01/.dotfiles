@@ -18,7 +18,7 @@ sh awesome_setup.sh <your user name>
 
 ### Packages
 
-#### Required (sort of)
+#### Required
 
 acpi   \
 alacritty-git   \
