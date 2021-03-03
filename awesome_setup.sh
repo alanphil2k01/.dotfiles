@@ -21,7 +21,7 @@ if [ ! -d "~/.config"]; then
     mkdir -p ~/.config
 fi
 echo "Copyting configs to ~/.config directory"
-cp -r awesome lf mpv mpd newsboat alacritty terminator nvim zathura flameshot zsh aliasrc shortcutrc zshnameddirrc gtk-2.0 gtk-3.0 $HOME/.config/
+cp -r awesome lf mpv mpd newsboat kitty alacritty terminator nvim zathura flameshot zsh aliasrc shortcutrc zshnameddirrc gtk-2.0 gtk-3.0 $HOME/.config/
 
 # Copying scripts
 clear

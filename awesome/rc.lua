@@ -91,7 +91,7 @@ local themes = {
 local chosen_theme = themes[7]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "alacritty"
+local terminal     = "kitty"
 local vi_focus     = true -- vi-like client focus - https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true -- cycle trough all previous client or just the first -- https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "nvim"
@@ -530,9 +530,9 @@ globalkeys = my_table.join(
               {description = "run browser", group = "launcher"}),
   --  awful.key({ modkey }, "a", function () awful.spawn(gui_editor) end,
    --           {description = "run gui editor", group = "launcher"}),
-    awful.key({ modkey }, "r", function () awful.util.spawn("alacritty -e lf") end,
+    awful.key({ modkey }, "r", function () awful.util.spawn("kitty -e lf") end,
               {description = "run file explorer", group = "launcher"}),
-    awful.key({ modkey }, "e", function () awful.util.spawn("alacritty -e newsboat") end,
+    awful.key({ modkey }, "e", function () awful.util.spawn("kitty -e newsboat") end,
               {description = "run newsboat", group = "launcher"}),
     -- Default
     --[[ Menubar
