@@ -2,7 +2,14 @@
 
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-PS1_TEMPLATE="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[cyan]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+precmd() {
+    precmd() {
+        echo
+    }
+}
+PS1="%B%{$fg[cyan]%}%~
+%{$fg[yellow]%}%{$reset_color%} %b"
+RPS1="%(?.%{$fg[green]%}.%{$fg[red]%}✗%{$fg[yellow]%}%?) %{$fg[white]%}%@"
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 
@@ -34,21 +41,17 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-#}
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+ if [[ ${KEYMAP} == vicmd ]]; then
+   echo -ne '\e[2 q'
+ elif [[ ${KEYMAP} == main ]] ||
+      [[ ${KEYMAP} == viins ]]; then
+   echo -ne '\e[6 q'
+ fi
+}
 function zle-line-init() {
   zle -K viins
-}
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]]; then
-    echo -ne '\e[2 q' 
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]]; then
-    echo -ne '\e[1 q'
-  fi
-    PS1="${PS1_TEMPLATE}"
-    VIMODE="%{$fg[green]%}NORMAL%{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIMODE}/(main|viins)/}"
-    zle reset-prompt
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
@@ -65,8 +68,6 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
-# bindkey -s '^a' 'bc -l\n'
-
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 
 bindkey '^[[P' delete-char
@@ -77,4 +78,4 @@ bindkey '^e' edit-command-line
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

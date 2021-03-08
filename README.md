@@ -27,8 +27,7 @@ brave-bin   \
 dmenu   \
 feh   \
 flameshot   \
-gruvbox-material-gtk-theme-git   \
-gruvbox-material-icon-theme-git   \
+fzf   \
 i3lock-color-git   \
 lf-git   \
 mpv   \
@@ -47,8 +46,8 @@ zsh-fast-syntax-highlighting
 lxappearance  \
 mpd   \
 pavucontrol  \
-spotify     \
 terminator  \
+alacritty  \
 vim
 
 #### From Github

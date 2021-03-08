@@ -9,7 +9,7 @@ export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="alacritty"
+export TERMINAL="kitty"
 export BROWSER="brave"
 export READER="zathura"
 
@@ -27,7 +27,6 @@ export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 # export PATH="$PATH:$GOROOT/bin"
 # export GOPATH="$HOME/Projects/go"
 # export PATH="$PATH:$GOPATH/bin"
-# export GOPATH="$GOPATH:$HOME/Projects/my_go"
 
 # Other program settings:
 export DICS="/usr/share/stardict/dic/"
@@ -43,6 +42,7 @@ export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
 export QT_QPA_PLATFORMTHEME="gtk2"	# Have QT use gtk2 theme.
+export LS_COLORS="ow=1;36"
 
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\
