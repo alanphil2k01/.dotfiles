@@ -1,15 +1,55 @@
-# Luke's config for the Zoomer Shell
-
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-precmd() {
-    precmd() {
-        echo
-    }
-}
-PS1="%B%{$fg[cyan]%}%~
+
+# Templates
+PS1_TEMPLATE="%B%{$fg[cyan]%}%~
 %{$fg[yellow]%}%{$reset_color%} %b"
-RPS1="%(?.%{$fg[green]%}.%{$fg[red]%}✗%{$fg[yellow]%}%?) %{$fg[white]%}%@"
+RPS1_TEMPLATE="%(?.%{$fg[green]%}.%{$fg[red]%}✗%{$fg[yellow]%}%?) %{$fg[white]%}%D{%L:%M:%S %p}"
+PS1_TTY_TEMPLATE="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[cyan]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+
+# Execute after enter is pressed in a command
+function preexec() {
+    timer=$(($(date +%s%3N)))
+}
+
+# Resets prompt every second
+TMOUT=1
+TRAPALRM() {
+    zle reset-prompt
+}
+
+# Variable to check if it's the first line in the terminal
+first=true
+
+# Executes before each prompt
+function precmd() {
+    case $TERM in
+    xterm*|konsole*|alacritty*)
+        if [[ $first == true ]];then
+            first=false
+        else
+            echo
+        fi
+        PS1="$PS1_TEMPLATE"
+        RPS1="$RPS1_TEMPLATE"
+        if [ $timer ]; then
+            now=$(($(date +%s%3N)))
+            elapsed=$(($now-$timer))
+            time_taken="${elapsed}ms"
+            if (($elapsed > 1000)); then
+                elapsed=$(($elapsed/1000))
+                time_taken="${elapsed%%1##}s"
+            fi
+            RPS1="$RPS1_TEMPLATE %{$fg[cyan]%}$time_taken%{$reset_color%}"
+            unset timer
+        else
+            RPS1="$RPS1_TEMPLATE"
+        fi ;;
+    *)
+        PS1="$PS1_TTY_TEMPLATE";;
+    esac
+}
+
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 
