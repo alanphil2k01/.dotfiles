@@ -2,10 +2,27 @@
 autoload -U colors && colors	# Load colors
 
 # Templates
-PS1_TEMPLATE="%B%{$fg[cyan]%}%~
-%{$fg[yellow]%}%{$reset_color%} %b"
+PS1_TEMPLATE_LINE_1="%B%{$fg[red]%}%m: %{$fg[cyan]%}%~%{$fg[green]%}"
+PS1_TEMPLATE_LINE_2="%{$fg[yellow]%}%{$reset_color%} %b"
 RPS1_TEMPLATE="%(?.%{$fg[green]%}.%{$fg[red]%}✗%{$fg[yellow]%}%?) %{$fg[white]%}%D{%L:%M:%S %p}"
 PS1_TTY_TEMPLATE="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[cyan]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' actionformats \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:*' formats       \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+
+zstyle ':vcs_info:*' enable git cvs svn
+
+# or use pre_cmd, see man zshcontrib
+vcs_info_wrapper() {
+  vcs_info
+  if [ -n "$vcs_info_msg_0_" ]; then
+    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+  fi
+}
 
 # Execute after enter is pressed in a command
 function preexec() {
@@ -30,7 +47,8 @@ function precmd() {
         else
             echo
         fi
-        PS1="$PS1_TEMPLATE"
+        PS1="$PS1_TEMPLATE_LINE_1 $(vcs_info_wrapper)
+$PS1_TEMPLATE_LINE_2"
         RPS1="$RPS1_TEMPLATE"
         if [ $timer ]; then
             now=$(($(date +%s%3N)))
