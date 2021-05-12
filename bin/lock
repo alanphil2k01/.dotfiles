@@ -1,64 +1,46 @@
 #!/bin/sh
 
-FG='#afff14'   # fluroscent yellow
 B='#00000000'  # blank
-C='#a8998422'  # clear ish
-D='#928374ff'  # default
-T='#ebdbb2ff'  # text
-W='#12A2BAff'  # wrong
-V='#458588ff'  # verifying
-BL='#000000ff' # black
-BG='#282828ff' # background color
-BAR='#ffffffff' # bar background color
+C='#ffffff22'  # clear ish
+D='#ff00ffcc'  # default
+#T='#ee00eeee'  # text
+T='#08FF08ee'  # text
+W='#880000bb'  # wrong
+V='#bb00bbbb'  # verifying
+G='#21FF21cc'  # fluroscent green
 
 setxkbmap us && \
 /usr/bin/i3lock \
---color=$T   \
 --insidevercolor=$C   \
---ringvercolor=$V     \
+--ringvercolor=$T     \
 \
 --insidewrongcolor=$C \
 --ringwrongcolor=$W   \
 \
 --insidecolor=$B      \
---ringcolor=$D        \
+--ringcolor=$G        \
 --linecolor=$B        \
---separatorcolor=$D   \
+--separatorcolor=$G   \
 \
---verifcolor=$BL        \
---wrongcolor=$BL        \
---timecolor=$FG        \
---datecolor=$FG        \
+--verifcolor=$T        \
+--wrongcolor=$T        \
+--timecolor=$T        \
+--datecolor=$T        \
 --layoutcolor=$T      \
 --keyhlcolor=$W       \
---bshlcolor=$BAR        \
---bar-color=$B \
+--bshlcolor=$W        \
 \
---image="$HOME/.wallpaper/wallpaper.jpg" \
 --screen 1            \
---bar-indicator            \
---bar-position="1060"          \
+--blur 5              \
 --clock               \
---timestr="%I:%M %P"  \
---datestr="%d %b %Y" \
---datepos="1900:1020" \
---timepos="1900:960" \
---time-align 2 \
---date-align 2 \
---timesize="72" \
---datesize="36" \
---blur=5 \
---noinputtext="NO INPUT" \
---veriftext="VERIFYING" \
---wrongtext="ACCESS DENIED" \
---pointer=default \
-#--noinputtext="" \
-#--veriftext="" \
-#--wrongtext="" \
-#--no-verify \
-#--keylayout 0         \
-#--textsize=20 \
+--indicator           \
+--timestr="%H:%M:%S"  \
+--datestr="%A, %m %Y" \
+
+# --veriftext="Drinking verification can..."
+# --wrongtext="Nope!"
+# --textsize=20
+# --keylayout 1         
 # --modsize=10
 # --timefont=comic-sans
 # --datefont=monofur
-# etc

@@ -8,6 +8,7 @@ h="cd $HOME && ls -a" \
 m="cd ${XDG_MUSIC_DIR:-$HOME/Music} && ls -a" \
 mn="cd /mnt && ls -a" \
 pp="cd ${XDG_PICTURES_DIR:-$HOME/Pictures} && ls -a" \
+scr="cd ${XDG_PICTURES_DIR:-$HOME/Pictures}/Screenshots && ls -a" \
 sc="cd $HOME/.local/bin && ls -a" \
 src="cd $HOME/.local/src && ls -a" \
 P="cd $HOME/Projects" \

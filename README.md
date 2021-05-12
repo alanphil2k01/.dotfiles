@@ -1,6 +1,6 @@
 # My AwesomeWM dotfiles
 
-## setup
+## Setup
 
 ``` sh
 git clone https://github.com/alanphil2k01/dotfiles-awesome.git
@@ -8,7 +8,6 @@ cd dotfiles-awesome
 chmod +x setup.sh
 ./setup.sh
 ```
-
 ### or
 
 ```sh
@@ -20,37 +19,47 @@ sh awesome_setup.sh <your user name>
 
 #### Required
 
-acpi   \
-alacritty-git   \
-awesome   \
-brave-bin   \
-dmenu   \
-feh   \
-flameshot   \
-fzf   \
-i3lock-color-git   \
-lf-git   \
-mpv   \
-neovim      \
-newsboat   \
-noto-fonts-emoji   \
-perl-file-mimeinfo   \
-xorg-xinit   \
-zathura   \
-zsh   \
-zsh-autosuggestions   \
-zsh-fast-syntax-highlighting
+- acp
+- alacritty-gi
+- awesome
+- dmen
+- feh
+- firefox
+- flamesho
+- fzf
+- i3lock-color-gi
+- lf-git
+- mpv
+- neovim
+- newsboa
+- noto-fonts-emoj
+- perl-file-mimeinfo
+- xorg-xinit
+- zathura
+- zsh
+- zsh-autosuggestions
+- zsh-fast-syntax-highlighting
 
 #### Extras
 
-lxappearance  \
-mpd   \
-pavucontrol  \
-terminator  \
-alacritty  \
-vim
+- lxappearanc
+- mpd
+- pavucontrol
+- terminato
+- alacritt
+- vim
 
 #### From Github
 
-[wallpaper-reddit](https://github.com/markubiak/wallpaper-reddit) with python-pillow
+- [wallpaper-reddit](https://github.com/markubiak/wallpaper-reddit)
+- [nvim cofig](https://github.com/alanphil2k01/vim-config.git)
 
+### Firefox Extensions
+
+- [HTTPS Everywhere](https://addons.mozilla.org/en-US/firefox/addon/https-everywhere/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+- [Privacy Badger](https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/)
+- [Stylus](https://addons.mozilla.org/en-US/firefox/addon/styl-us/)
+- [Tabliss](https://addons.mozilla.org/en-US/firefox/addon/tabliss/)
+- [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+- [Vimium C](https://addons.mozilla.org/en-US/firefox/addon/vimium-c/)
+- [Wappalyzer](https://addons.mozilla.org/en-US/firefox/addon/wappalyzer/)

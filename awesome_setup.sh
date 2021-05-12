@@ -21,7 +21,7 @@ if [ ! -d "~/.config"]; then
     mkdir -p ~/.config
 fi
 echo "Copyting configs to ~/.config directory"
-cp -r awesome lf mpv mpd newsboat kitty alacritty terminator nvim zathura flameshot zsh aliasrc shortcutrc zshnameddirrc gtk-2.0 gtk-3.0 $HOME/.config/
+cp -r awesome lf mpv mpd newsboat kitty alacritty terminator zathura feh flameshot zsh aliasrc shortcutrc zshnameddirrc gtk-2.0 gtk-3.0 $HOME/.config/
 
 # Copying scripts
 clear
@@ -50,6 +50,12 @@ clear
 echo "Copying .xinitrc and .profile to $HOME directory"
 cp .xinitrc .zprofile $HOME
 ln -s $HOME/.zprofile $HOME/.profile
+
+# nvim configs
+clear
+echo "Running neovim setup script"
+curl -O https://raw.githubusercontent.com/alanphil2k01/vim-config/master/setup.sh
+sh setup.sh
 
 # Removing repo folder
 clear
