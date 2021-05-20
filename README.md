@@ -19,20 +19,21 @@ sh awesome_setup.sh <your user name>
 
 #### Required
 
-- acp
-- alacritty-gi
+- acpi
+- alacritty-git
 - awesome
-- dmen
+- dmenu
 - feh
-- firefox
-- flamesho
+- firefox-developer-edition
+- flameshot
 - fzf
-- i3lock-color-gi
+- i3lock-color-git
 - lf-git
 - mpv
 - neovim
-- newsboa
-- noto-fonts-emoj
+- nerd-font-fira-code
+- newsboat
+- noto-fonts-emoji
 - perl-file-mimeinfo
 - xorg-xinit
 - zathura
@@ -42,6 +43,7 @@ sh awesome_setup.sh <your user name>
 
 #### Extras
 
+- firefox
 - lxappearanc
 - mpd
 - pavucontrol
