@@ -10,59 +10,39 @@ if [[ $# -eq 0 ]]; then
 fi
 
 #cloning repo
-clear
 echo "Cloning Repository"
-git clone https://github.com/alanphil2k01/dotfiles-awesome.git
+git clone https://github.com/alanphil2k01/dotfiles-awesome.git > /dev/null
 cd dotfiles-awesome
 
 # Copying configs
-clear
-if [ ! -d "~/.config"]; then
-    mkdir -p ~/.config
-fi
+mkdir -p ~/.config
 echo "Copyting configs to ~/.config directory"
-cp -r awesome lf mpv mpd newsboat kitty alacritty terminator zathura feh flameshot zsh aliasrc shortcutrc zshnameddirrc gtk-2.0 gtk-3.0 $HOME/.config/
+cp -r awesome lf mpv mpd newsboat kitty alacritty terminator zathura feh flameshot zsh tmux aliasrc shortcutrc zshnameddirrc $HOME/.config/ > /dev/null
 
 # Copying scripts
-clear
-if [ ! -d "~/.local"]; then
-    mkdir -p ~/.local
-fi
-if [ ! -d "~/.local/bin"]; then
-    mkdir -p ~/.local/bin
-fi
+mkdir -p ~/.local/bin
 echo "Copying scripts to ~/.local/bin directory"
-cp  -r bin/* $HOME/.local/bin
+cp  -r bin/* $HOME/.local/bin > /dev/null
 
 # Copying Fonts
-clear
-if [ ! -d "~/.local/share" ]; then
-    mkdir -p ~/.local/share
-fi
-if [ ! -d "~/.local/share/fonts" ]; then
-    mkdir -p ~/.local/share/fonts
-fi
+mkdir -p ~/.local/share/fonts
 echo "Copying fonts to ~/.local/share/fonts directory"
-cp -r fonts/* $HOME/.local/share/fonts
+cp -r fonts/* $HOME/.local/share/fonts > /dev/null
 
 # Copying proflies
-clear
 echo "Copying .xinitrc and .profile to $HOME directory"
-cp .xinitrc .zprofile $HOME
-ln -s $HOME/.zprofile $HOME/.profile
+cp .xinitrc .zprofile $HOME > /dev/null
+ln -s $HOME/.zprofile $HOME/.profile > /dev/null
 
 # nvim configs
-clear
 echo "Running neovim setup script"
-curl -O https://raw.githubusercontent.com/alanphil2k01/vim-config/master/setup.sh
+curl -O https://raw.githubusercontent.com/alanphil2k01/vim-config/master/setup.sh > /dev/null
 sh setup.sh
 
 # Removing repo folder
-clear
 echo "Removing repository directory"
 cd ..
-rm -rf dotfiles-awesome
+rm -rf dotfiles-awesome > /dev/null
 
 # All done
-clear
 echo "All Done!!"

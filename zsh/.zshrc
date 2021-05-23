@@ -4,7 +4,7 @@ autoload -U colors && colors	# Load colors
 # Templates
 PS1_TEMPLATE_LINE_1="%B%{$fg[red]%}%m: %{$fg[cyan]%}%~%{$fg[green]%}"
 PS1_TEMPLATE_LINE_2="%{$fg[yellow]%}%{$reset_color%} %b"
-RPS1_TEMPLATE="%(?.%{$fg[green]%}.%{$fg[red]%}✗%{$fg[yellow]%}%?) %{$fg[white]%}%D{%L:%M:%S %p}"
+RPS1_TEMPLATE="%(?.%{$fg[green]%}.%{$fg[red]%}✗%{$fg[yellow]%}%?) %{$fg[white]%}%D{%L:%M %p}"
 PS1_TTY_TEMPLATE="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[cyan]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 autoload -Uz vcs_info
@@ -30,7 +30,7 @@ function preexec() {
 }
 
 # Resets prompt every second
-TMOUT=1
+TMOUT=60
 TRAPALRM() {
     zle reset-prompt
 }
@@ -64,7 +64,10 @@ $PS1_TEMPLATE_LINE_2"
             RPS1="$RPS1_TEMPLATE"
         fi ;;
     *)
-        PS1="$PS1_TTY_TEMPLATE";;
+        PS1="$PS1_TTY_TEMPLATE"
+        RPS1="$RPS1_TEMPLATE"
+        RPS1="%{$fg[white]%}%D{%L:%M %p} $(vcs_info_wrapper)"
+        ;;
     esac
 }
 
