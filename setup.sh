@@ -27,8 +27,8 @@ touch $HOME/.cache/zsh/history
 
 # nvim configs
 echo "Running neovim setup script"
-curl -o vim_setup.sh https://raw.githubusercontent.com/alanphil2k01/vim-config/master/setup.sh > /dev/null
-sh vim_setup.sh
+curl -O https://raw.githubusercontent.com/alanphil2k01/vim-config/master/setup-nvim.sh 
+sh setup-nvim.sh
 
 # All done
 echo "All Done!!"
