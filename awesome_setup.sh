@@ -27,6 +27,12 @@ echo "Copying .xinitrc and .profile to $HOME directory"
 cp .xinitrc .zprofile $HOME > /dev/null
 ln -s $HOME/.zprofile $HOME/.profile > /dev/null
 
+
+# Creating history file for zsh
+echo "Creating history file for zsh"
+mkdir -p $HOME/.cache/zsh
+touch $HOME/.cache/zsh/history
+
 # nvim configs
 echo "Running neovim setup script"
 curl -o vim_setup.sh https://raw.githubusercontent.com/alanphil2k01/vim-config/master/setup.sh > /dev/null
