@@ -1,13 +1,6 @@
 #!/bin/sh
 
-HOME="/home/$1"
-
 cd $HOME
-
-if [[ $# -eq 0 ]]; then
-    echo "Usage ./awesome_setup.sh <your username>"
-    exit
-fi
 
 #cloning repo
 echo "Cloning Repository"

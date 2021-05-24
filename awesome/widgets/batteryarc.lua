@@ -34,6 +34,15 @@ local function worker(args)
     local medium_level_color = args.medium_level_color or '#c0ca33'
     local charging_color = args.charging_color or '#43a047'
 
+    local full_charge_msg_title = args.warning_msg_title or 'Houston'
+    local full_charge_msg_text = args.warning_msg_text or 'Battery is full'
+    local full_charge_msg_position = args.warning_msg_position or 'bottom_right'
+    local full_charge_msg_icon = args.warning_msg_icon or HOME .. '/.config/awesome/theme/icons/spaceman.jpg'
+    local enable_battery_full_charge_warning = args.enable_battery_full_charge_warning
+    if enable_battery_full_charge_warning == nil then
+        enable_battery_full_charge_warning = true
+    end
+
     local warning_msg_title = args.warning_msg_title or 'Houston, we have a problem'
     local warning_msg_text = args.warning_msg_text or 'Battery is dying'
     local warning_msg_position = args.warning_msg_position or 'bottom_right'
@@ -114,6 +123,14 @@ local function worker(args)
         else
             widget.colors = { main_color }
         end
+        if charge == 100 then
+            if enable_battery_full_charge_warning and status == 'Full' and os.difftime(os.time(), last_battery_check) > 300 then
+                -- if 5 minutes have elapsed since the last warning
+                last_battery_check = os.time()
+
+                show_full_charge_notification()
+            end
+        end
     end
 
     watch("acpi", timeout, update_widget, widget)
@@ -156,7 +173,18 @@ local function worker(args)
             width = 300,
         }
     end
-
+    function show_full_charge_notification()
+        naughty.notify {
+            icon = full_charge_msg_icon,
+            icon_size = 100,
+            text = full_charge_msg_text,
+            position = full_charge_msg_position,
+            title = full_charge_msg_title,
+            timeout = 25, -- show the warning for a longer time
+            hover_timeout = 0.5,
+            width = 300,
+        }
+    end
     return widget
 
 end

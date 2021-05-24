@@ -35,6 +35,7 @@ sh awesome_setup.sh <your user name>
 - newsboat
 - noto-fonts-emoji
 - perl-file-mimeinfo
+- redshift
 - xorg-xinit
 - zathura
 - zsh
@@ -47,8 +48,8 @@ sh awesome_setup.sh <your user name>
 - lxappearanc
 - mpd
 - pavucontrol
-- terminato
-- alacritt
+- terminator
+- alacritty
 - vim
 
 #### From Github
