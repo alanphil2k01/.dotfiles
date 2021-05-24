@@ -36,8 +36,8 @@ ln -s $HOME/.zprofile $HOME/.profile > /dev/null
 
 # nvim configs
 echo "Running neovim setup script"
-curl -O https://raw.githubusercontent.com/alanphil2k01/vim-config/master/setup.sh > /dev/null
-sh setup.sh
+curl -o vim_setup.sh https://raw.githubusercontent.com/alanphil2k01/vim-config/master/setup.sh > /dev/null
+sh vim_setup.sh
 
 # Removing repo folder
 echo "Removing repository directory"
