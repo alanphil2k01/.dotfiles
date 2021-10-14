@@ -34,10 +34,6 @@ fi
 
 # Configure Keyboard
 xset r rate 300 50
-setxkbmap -option caps:escape
-
-# Blue light filter
-redshift -P -O 4600
 
 # Start Awesome WM
 exec awesome

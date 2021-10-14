@@ -16,7 +16,6 @@ zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 
 zstyle ':vcs_info:*' enable git cvs svn
 
-# or use pre_cmd, see man zshcontrib
 vcs_info_wrapper() {
   vcs_info
   if [ -n "$vcs_info_msg_0_" ]; then
@@ -29,7 +28,7 @@ function preexec() {
     timer=$(($(date +%s%3N)))
 }
 
-# Resets prompt every second
+# Resets prompt every 60 seconds
 TMOUT=60
 TRAPALRM() {
     zle reset-prompt
@@ -41,7 +40,7 @@ first=true
 # Executes before each prompt
 function precmd() {
     case $TERM in
-    xterm*|konsole*|alacritty*)
+    xterm*|konsole*|alacritty*|screen*)
         if [[ $first == true ]];then
             first=false
         else
@@ -77,12 +76,6 @@ stty stop undef		# Disable ctrl-s to freeze terminal.
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
-
-# Load aliases and shortcuts if existent.
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc"
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -117,18 +110,6 @@ function zle-line-init() {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-# Use lf to switch directories and bind it to ctrl-o
-lfcd () {
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp" >/dev/null
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
-bindkey -s '^o' 'lfcd\n'
-
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 
 bindkey '^[[P' delete-char
@@ -138,5 +119,56 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # Load syntax highlighting; should be last.
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f "/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ] && source "/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+[ -f "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+# Commmmand aliases
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+alias cp="cp -iv"  \
+    mv="mv -iv"  \
+    rm="rm -vI"  \
+    mkd="mkdir -pv"  \
+    ls="ls -hN --color=auto --group-directories-first"  \
+    ll="ls -la -hN --color=auto --group-directories-first"  \
+    grep="grep --color=auto"  \
+    feh="feh -B black"  \
+    ka="killall"  \
+    e="$EDITOR"  \
+    v="$EDITOR"  \
+    p="sudo pacman"  \
+    z="zathura"  \
+    diff="diff --color=auto"  \
+    g="git"  \
+
+# Dir aliases
+alias cac="cd ${XDG_CACHE_HOME:-$HOME/.cache} && ls -a"  \
+    cf="cd ${XDG_CONFIG_HOME:-$HOME/.config} && ls -a"  \
+    D="cd ${XDG_DOWNLOAD_DIR:-$HOME/Downloads} && ls -a"  \
+    d="cd ${XDG_DOCUMENTS_DIR:-$HOME/Documents} && ls -a"  \
+    dt="cd ${XDG_DATA_HOME:-$HOME/.local/share} && ls -a"  \
+    h="cd $HOME && ls -a"  \
+    m="cd ${XDG_MUSIC_DIR:-$HOME/Music} && ls -a"  \
+    mn="cd /mnt && ls -a"  \
+    pp="cd ${XDG_PICTURES_DIR:-$HOME/Pictures} && ls -a"  \
+    scr="cd ${XDG_PICTURES_DIR:-$HOME/Pictures}/Screenshots && ls -a"  \
+    sc="cd $HOME/.local/bin && ls -a"  \
+    src="cd $HOME/.local/src && ls -a"  \
+    P="cd $HOME/Projects"  \
+    vv="cd ${XDG_VIDEOS_DIR:-$HOME/Videos} && ls -a"  \
+    cfz="$EDITOR $ZDOTDIR/.zshrc"  \
+    cfv="cd ${XDG_CONFIG_HOME:-$HOME/.config}/nvim && $EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/init.vim"  \
+    cfa="cd ${XDG_CONFIG_HOME:-$HOME/.config}/awesome && $EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/awesome/rc.lua"  \
+
+# Zsh named dirs
+hash -d cf=${XDG_CONFIG_HOME:-$HOME/.config}
+hash -d D=${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
+hash -d d=${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+hash -d dt=${XDG_DATA_HOME:-$HOME/.local/share}
+hash -d h=$HOME
+hash -d mn=/mnt
+hash -d pp=${XDG_PICTURES_DIR:-$HOME/Pictures}
+hash -d scr=$HOME/Pictures/Screenshots
+hash -d sc=$HOME/.local/bin
+hash -d src=$HOME/.local/src
+hash -d vv=${XDG_VIDEOS_DIR:-$HOME/Videos}
