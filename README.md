@@ -1,9 +1,9 @@
 # My AwesomeWM dotfiles
 
 ## Setup
-
 ```sh
-curl -O https://raw.githubusercontent.com/alanphil2k01/dotfiles-awesome/master/awesome_setup.sh | bash
+curl -O https://raw.githubusercontent.com/alanphil2k01/dotfiles-awesome/master/awesome_setup.sh
+sh awesome_setup.sh
 ```
 
 ### Packages
