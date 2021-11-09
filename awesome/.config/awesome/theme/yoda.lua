@@ -6,7 +6,7 @@ local theme_path = gfs.get_configuration_dir() .. 'theme/'
 
 local theme = {}
 
-theme.font          = "FiraCode Nerd Font Regular 15"
+theme.font          = "FiraCode Regular 15"
 
 theme.bg_normal     = "#0F161C"
 theme.bg_focus      = "#0F161C"
@@ -20,10 +20,10 @@ theme.fg_minimize   = "#11161C"
 theme.useless_gap   = dpi(5)
 theme.border_width  = dpi(1)
 theme.border_normal = "#273341"
-theme.border_focus  = "#12F4B4"
+theme.border_focus  = theme.fg_focus
 theme.border_marked = "#91231c"
 
-theme.wallpaper = theme_path.."background.jpg"
+theme.wallpaper = theme_path.."wallpapers/StarWarsYoda.jpg"
 
 theme.bg_systray    = theme.bg_normal
 
@@ -34,7 +34,6 @@ theme.taglist_fg_empty = "#004D40"
 theme.taglist_bg_focus =  theme.bg_focus
 theme.taglist_fg_focus =  "#B2DFDB"
 theme.taglist_fg_occupied = "#00897B"
-theme.taglist_spacing = 3
 
 theme.tasklist_fg_minimize = theme.fg_focus
 theme.tasklist_bg_minimize   = theme.bg_normal
@@ -92,9 +91,9 @@ theme.layout_cornerne = theme_path.."icons/layouts/cornernew.png"
 theme.layout_cornersw = theme_path.."icons/layouts/cornersww.png"
 theme.layout_cornerse = theme_path.."icons/layouts/cornersew.png"
 
-theme.volume_icon = theme_path .. "icons/volume-up-solid.svg"
-theme.cpu_icon = theme_path .. "icons/microchip-solid.svg"
-theme.ram_icon = theme_path .. "icons/memory-solid.svg"
+theme.volume_icon = theme_path .. "icons/volume-up-solid_cyan.svg"
+theme.cpu_icon = theme_path .. "icons/microchip-solid_cyan.svg"
+theme.ram_icon = theme_path .. "icons/memory-solid_cyan.svg"
 
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(

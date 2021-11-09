@@ -1,4 +1,5 @@
 local awful = require('awful')
+local beautiful = require('beautiful')
 local gears = require('gears')
 local hotkeys_popup = require("awful.hotkeys_popup")
 
@@ -9,6 +10,14 @@ local altkey = require('configuration.keys.mods').altkey
 
 -- Keybindings
 local globalkeys = gears.table.join(
+    awful.key(
+        { modkey }, "i",
+        function()
+            beautiful.init(require('theme').ReyBB8)
+            _G.REAPPLYTHEME()
+        end,
+        {description="theme colors change", group="awesome"}
+    ),
     -- Show help
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
@@ -58,6 +67,14 @@ local globalkeys = gears.table.join(
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
+    awful.key({ altkey,           }, "Tab",
+        function ()
+            awful.client.focus.byidx(1)
+            if _G.client.focus then
+                _G.client.focus:raise()
+            end
+        end,
+        {description = "cycle clients in screen", group = "client"}),
     awful.key({ modkey,           }, "Tab",
         function ()
             awful.client.focus.byidx(1)

@@ -17,7 +17,7 @@ local function worker(args)
     local path_to_icon = args.path_to_icon or nil
     local thickness = args.thickness or 2
     local height = args.height or 18
-    local timeout = args.timeout or 1
+    local timeout = args.timeout or 5
 
     local get_ram_cmd = args.get_volume_cmd or GET_RAM_CMD
 

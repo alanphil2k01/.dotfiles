@@ -96,7 +96,7 @@ local function worker(args)
     local color = args.color or beautiful.fg_normal
     local enable_kill_button = args.enable_kill_button or false
     local process_info_max_length = args.process_info_max_length or -1
-    local timeout = args.timeout or 1
+    local timeout = args.timeout or 10
 
     local cpugraph_widget = wibox.widget {
         max_value = 100,
@@ -172,7 +172,7 @@ local function worker(args)
                             {
                                 max_value = 100,
                                 value = diff_usage,
-                                forced_height = 20,
+                                forced_height = 15,
                                 forced_width = 150,
                                 paddings = 1,
                                 margins = 4,
@@ -228,13 +228,13 @@ local function worker(args)
 
                             row:connect_signal("mouse::enter", function(c) c:set_bg(beautiful.bg_focus) end)
                             row:connect_signal("mouse::leave", function(c) c:set_bg(beautiful.bg_normal) end)
-                            
+
                             if enable_kill_button then
                                 row:connect_signal("mouse::enter", function(c) kill_proccess_button.icon.opacity = 1 end)
                                 row:connect_signal("mouse::leave", function(c) kill_proccess_button.icon.opacity = 0.1 end)
-                                
+
                                 kill_proccess_button:buttons(
-                                    awful.util.table.join( awful.button({}, 1, function() 
+                                    awful.util.table.join( awful.button({}, 1, function()
                                         row:set_bg('#ff0000')
                                         awful.spawn.with_shell('kill -9 ' .. pid)
                                     end) ) )

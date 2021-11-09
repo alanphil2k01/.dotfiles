@@ -12,3 +12,11 @@ awful.screen.connect_for_each_screen(
         s.top_panel = top_panel(s)
     end
 )
+
+function REAPPLYTHEME()
+    awful.screen.connect_for_each_screen(
+    function(s)
+        gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+    end
+    )
+end

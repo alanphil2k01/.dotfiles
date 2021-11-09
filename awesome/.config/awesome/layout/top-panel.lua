@@ -27,7 +27,7 @@ local cpu_icon = wibox.widget {
 
 -- CPU Widget
 local cpu_widget = require("widgets.cpu-widget")({
-    width = 70,
+    width = 40,
     step_width = 2,
     step_spacing = 0,
     color = beautiful.fg_focus,
@@ -40,7 +40,6 @@ local ramarc_widget = require("widgets.ramarc-widget")({
     warning_color = '#ff0000',
     thickness = 2,
     height = 25,
-    timeout = 0.1,
     path_to_icon = beautiful.ram_icon
 })
 
@@ -50,7 +49,6 @@ local volumearc_widget = require("widgets.volumearc")({
     mute_color = '#ff0000',
     thickness = 2,
     height = 25,
-    timeout = 0.1,
     path_to_icon = beautiful.volume_icon
 })
 
@@ -62,6 +60,7 @@ local batteryarc_widget = require("widgets.batteryarc")({
     warning_msg_title  = "Huston, we have a problem",
     warning_msg_text = "Battery is dying",
     warning_msg_position = "top_right",
+    enable_battery_full_charge_warning=false,
 })
 
 return function(s)

@@ -5,7 +5,7 @@ require("awful.autofocus")
 require("awful.hotkeys_popup.keys")
 
 -- Initialize theme
-beautiful.init(require('theme'))
+beautiful.init(require('theme').ReyBB8)
 
 -- Layout
 require('layout')
