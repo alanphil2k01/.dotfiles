@@ -3,7 +3,7 @@
 dotfiles={"awesome" "zsh" "tmux" "bin" "profiles"}
 #cloning repo
 echo "Cloning Repository"
-git clone https://github.com/alanphil2k01/dotfiles-awesome.git ~/.dotfiles > /dev/null
+git clone https://github.com/alanphil2k01/dotfiles-awesome.git ~/.dotfiles --recursive
 cd ~/.dotfiles
 
 #stowing repo
