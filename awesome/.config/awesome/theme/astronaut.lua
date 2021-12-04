@@ -6,7 +6,7 @@ local theme_path = gfs.get_configuration_dir() .. 'theme/'
 
 local theme = {}
 
-theme.font          = "FiraCode Regular 15"
+theme.font          = "FiraCode Nerd Font 15"
 
 theme.bg_normal     = "#0F161C"
 theme.bg_focus      = "#0F161C"

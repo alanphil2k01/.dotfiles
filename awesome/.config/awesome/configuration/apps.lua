@@ -1,27 +1,19 @@
-local terminal = 'kitty'
-local lock = 'lock2'
-local screenshot = 'flameshot'
-
 return {
   -- Default apps
   default = {
-    terminal = terminal,
-    lock = lock,
-    sleep_with_lock = lock .. ' & systemctl suspend',
-    screenshot = screenshot .. ' screen -p /home/alan/Pictures/Screenshots',
-    region_screenshot = screenshot .. ' gui -p /home/alan/Pictures/Screenshots',
-    browser1 = 'firefox-developer-edition',
+    terminal = 'kitty',
+    lock = 'lock2',
+    sleep_with_lock = 'lock2 & systemctl suspend',
+    screenshot = 'flameshot screen -p /home/alan/Pictures/Screenshots',
+    region_screenshot = 'flameshot gui -p /home/alan/Pictures/Screenshots',
+    browser1 = 'brave',
     browser2 = 'firefox',
     editor = 'nvim',
-    files = terminal .. ' -e lf',
-    rss = terminal .. ' -e newsboat',
+    files = 'nemo',
   },
   -- List of apps to start once on start-up
   run_on_start_up = {
     'picom -f -i 1.0 -m 1.0 -e 1.0 -b',
     'nm-applet',
-    -- 'blueberry-tray',
-    -- 'optimus-manager-qt',
-    -- 'stretchly',
   }
 }

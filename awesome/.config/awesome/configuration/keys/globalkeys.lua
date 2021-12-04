@@ -164,8 +164,6 @@ local globalkeys = gears.table.join(
               {description = "open chromium", group = "launcher"}),
     awful.key({ modkey }, "e", function () awful.spawn(apps.default.files) end,
               {description = "open file explorer", group = "launcher"}),
-    awful.key({ modkey }, "r", function () awful.spawn(apps.default.rss) end,
-              {description = "open newsboat", group = "launcher"}),
     awful.key({  modkey }, "d", function () awful.spawn("dmenu_run") end,
     		{description = "run prompt", group = "launcher"}),
     awful.key({  modkey }, "v", function () awful.spawn("pavucontrol --tab=3") end,

@@ -15,30 +15,27 @@ sh awesome_setup.sh
 - awesome
 - dmenu
 - feh
-- firefox-developer-edition
+- brave-browser
 - flameshot
 - fzf
 - i3lock-color-git
-- lf-git
 - mpv
 - neovim
-- nerd-font-fira-code
-- newsboat
-- noto-fonts-emoji
-- perl-file-mimeinfo
+- nerd-font-complete
 - redshift
 - xorg-xinit
 - zathura
 - zsh
 - zsh-autosuggestions
 - zsh-fast-syntax-highlighting
+- pavucontrol
+- nemo
 
 #### Extras
 
 - firefox
 - lxappearanc
 - mpd
-- pavucontrol
 - terminator
 - alacritty
 - vim
