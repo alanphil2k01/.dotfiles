@@ -140,6 +140,8 @@ alias cp="cp -iv"  \
     z="zathura"  \
     diff="diff --color=auto"  \
     g="git"  \
+    asdf="setxkbmap us dvorak -option caps:escape"  \
+    aoeu="setxkbmap us -option caps:escape"  \
 
 # Dir aliases
 alias cac="cd ${XDG_CACHE_HOME:-$HOME/.cache} && ls -a"  \
