@@ -40,7 +40,7 @@ setxkbmap us && \
 # --veriftext="Drinking verification can..."
 # --wrongtext="Nope!"
 # --textsize=20
-# --keylayout 1         
+# --keylayout 1
 # --modsize=10
 # --timefont=comic-sans
 # --datefont=monofur

@@ -111,6 +111,9 @@ local function worker(args)
         end
 
         if charge < 15 then
+            if charge < 3 then
+                awful.spawn("systemctl hibernate")
+            end
             widget.colors = { low_level_color }
             if enable_battery_warning and status ~= 'Charging' and os.difftime(os.time(), last_battery_check) > 300 then
                 -- if 5 minutes have elapsed since the last warning

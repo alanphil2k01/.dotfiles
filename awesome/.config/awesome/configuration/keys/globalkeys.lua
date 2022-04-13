@@ -128,10 +128,10 @@ local globalkeys = gears.table.join(
               {description = "take a screenshot of the whole screen", group = "hotkeys"}),
 
     -- X screen locker
-    awful.key({  }, "XF86PowerOff", function () awful.spawn.with_shell(apps.default.sleep_with_lock)  end, --NOTE set HandlePowerKey=ignore in /etc/systemd/logind.conf
+    awful.key({  }, "XF86PowerOff", function () awful.spawn(apps.default.sleep_with_lock)  end, --NOTE set HandlePowerKey=ignore in /etc/systemd/logind.conf
               {description = "lock screen", group = "hotkeys"}),
-    awful.key({ modkey, "Shift" }, "e", function () awful.spawn(apps.default.lock) end,
-              {description = "lock screen", group = "hotkeys"}),
+    -- awful.key({ modkey, "Shift" }, "e", function () awful.spawn(apps.default.lock) end,
+    --           {description = "lock screen", group = "hotkeys"}),
 
     -- Toggle top panel
     awful.key({ altkey }, "b", function ()
@@ -156,6 +156,16 @@ local globalkeys = gears.table.join(
         {description = "toggle mute", group = "hotkeys"}),
     awful.key({ altkey, "Control" }, "m", function () awful.spawn('amixer -D pulse set Master 1+ toggle') end,
         {description = "volume 100%", group = "hotkeys"}),
+
+    -- playerctl
+    awful.key({  }, "XF86AudioPlay", function () awful.spawn('playerctl play-pause') end,
+        {description = "play media", group = "hotkeys"}),
+    awful.key({  }, "XF86AudioPause", function () awful.spawn('playerctl play-pause') end,
+        {description = "play media", group = "hotkeys"}),
+    awful.key({  }, "XF86AudioNext", function () awful.spawn('playerctl next') end,
+        {description = "play next media", group = "hotkeys"}),
+    awful.key({  }, "XF86AudioPrev", function () awful.spawn('playerctl previous') end,
+        {description = "play previous media", group = "hotkeys"}),
 
     -- User Programs
     awful.key({ modkey }, "b", function () awful.spawn(apps.default.browser1) end,

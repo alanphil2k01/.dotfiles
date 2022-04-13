@@ -6,6 +6,7 @@ export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="brave"
 export READER="zathura"
+export AWESOMEWM_THEME="ReyBB8"
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
