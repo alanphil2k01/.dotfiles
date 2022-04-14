@@ -17,7 +17,16 @@ local myawesomemenu = {
    { "quit", function() _G.awesome.quit() end },
 }
 
-return awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
-                            }
-})
+local mainmenu
+
+function ShowMainMenu()
+    mainmenu:toggle()
+end
+
+return function()
+    mainmenu = awful.menu({ items = {
+            { "awesome", myawesomemenu, beautiful.awesome_icon },
+            { "open terminal", terminal }
+        }
+    })
+end

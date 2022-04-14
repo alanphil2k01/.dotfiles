@@ -1,18 +1,15 @@
-local theme_assets = require("beautiful.theme_assets")
 local dpi = require("beautiful.xresources").apply_dpi
-
 local gfs = require("gears.filesystem")
 local theme_path = gfs.get_configuration_dir() .. 'theme/'
 
 local theme = {}
 
-theme.font          = "Fira Code 14"
+theme.font          = "Fira Code Nerd Font 14"
 
 theme.useless_gap   = dpi(5)
 theme.border_width  = dpi(1)
 
 theme.menu_submenu_icon = theme_path.."icons/submenu.png"
-theme.menu_height = dpi(20)
 theme.menu_width  = dpi(200)
 
 theme.titlebar_close_button_normal = theme_path.."icons/titlebar/close_normal.png"
@@ -57,15 +54,6 @@ theme.layout_cornernw = theme_path.."icons/layouts/cornernww.png"
 theme.layout_cornerne = theme_path.."icons/layouts/cornernew.png"
 theme.layout_cornersw = theme_path.."icons/layouts/cornersww.png"
 theme.layout_cornerse = theme_path.."icons/layouts/cornersew.png"
-
-theme.volume_icon = theme_path .. "icons/volume-up-solid_orange.svg"
-theme.cpu_icon = theme_path .. "icons/microchip-solid_orange.svg"
-theme.ram_icon = theme_path .. "icons/memory-solid_orange.svg"
-
--- Generate Awesome icon:
-theme.awesome_icon = theme_assets.awesome_icon(
-    theme.menu_height, theme.bg_focus, theme.fg_focus
-)
 
 return theme
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

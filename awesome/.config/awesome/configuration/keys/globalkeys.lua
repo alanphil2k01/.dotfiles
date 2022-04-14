@@ -4,7 +4,6 @@ local gears = require('gears')
 local hotkeys_popup = require("awful.hotkeys_popup")
 
 local apps = require('configuration.apps')
-local mainmenu = require('configuration.mainmenu')
 local modkey = require('configuration.keys.mods').modkey
 local altkey = require('configuration.keys.mods').altkey
 
@@ -53,7 +52,7 @@ local globalkeys = gears.table.join(
         {description = "focus right", group = "client"}),
 
     -- Show mainmenu
-    awful.key({ modkey,           }, "w", function () mainmenu:show() end,
+    awful.key({ modkey,           }, "w", function () ShowMainMenu() end,
               {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
