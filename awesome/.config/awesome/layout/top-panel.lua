@@ -1,10 +1,12 @@
 local awful = require('awful')
 local wibox = require('wibox')
+local gears = require('gears')
 local dpi = require("beautiful.xresources").apply_dpi
+local widgets_path = gears.filesystem.get_configuration_dir() .. 'widgets/init.lua'
 
 return function(s)
-    local w = require('widgets')()
-
+    -- To reload the widgets every time theme is changed
+    local w = dofile(widgets_path)
     if(s.top_panel) then
         s.top_panel:remove()
     end

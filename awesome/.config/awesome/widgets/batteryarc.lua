@@ -162,8 +162,12 @@ local function worker(args)
     end)
 
     --[[ Show warning notification ]]
+    local warn_notification
     function show_battery_warning()
-        naughty.notify {
+        if warn_notification then
+            naughty.destroy(warn_notification)
+        end
+        warn_notification = naughty.notify {
             icon = warning_msg_icon,
             icon_size = 100,
             text = warning_msg_text,
