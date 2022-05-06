@@ -24,10 +24,10 @@ theme.bg_systray    = theme.bg_normal
 theme.taglist_bg_urgent = theme.bg_normal
 theme.taglist_fg_urgent = "#EF5350"
 theme.taglist_bg_empty = theme.bg_normal
-theme.taglist_fg_empty = "#582266"
+theme.taglist_fg_empty = "#502266"
 theme.taglist_bg_focus =  theme.bg_focus
-theme.taglist_fg_focus =  "#FF13E6"
-theme.taglist_fg_occupied = "#91318E"
+theme.taglist_fg_focus =  "#FF13FF"
+theme.taglist_fg_occupied = "#AD318E"
 
 theme.tasklist_fg_minimize = theme.fg_focus
 theme.tasklist_bg_minimize   = theme.bg_normal
