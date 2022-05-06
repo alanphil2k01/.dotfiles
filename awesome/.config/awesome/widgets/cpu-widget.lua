@@ -115,7 +115,7 @@ local function worker(args)
         border_width = 1,
         border_color = beautiful.bg_normal,
         maximum_width = 400,
-        offset = { y = 10 },
+        offset = { y = 2 },
         widget = {}
     }
 
@@ -140,7 +140,7 @@ local function worker(args)
     local cpu_widget = wibox.container.margin(wibox.container.mirror(cpugraph_widget, { horizontal = true }), 0, 0, 0, 2)
 
     local cpus = {}
-    watch([[bash -c "grep '^cpu.' /proc/stat; ps -eo '%p|%c|%C|' -o "%mem" -o '|%a' --sort=-%cpu | head -11 | tail -n +2"]], timeout,
+    watch([[bash -c "grep '^cpu.' /proc/stat; ps -eo '%p|%c|%C|' -o "%mem" -o '|%a' --sort=-%cpu | head -9 | tail -n +2"]], timeout,
             function(widget, stdout)
                 local i = 1
                 local j = 1
