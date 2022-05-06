@@ -18,8 +18,8 @@ function ApplyTheme(t)
     end
 
     if (theme ~= 'ReyBB8' and
-        theme ~= 'yoda' and
-        theme ~= 'astronaut') then
+        theme ~= 'Yoda' and
+        theme ~= 'Astronaut') then
             theme = 'ReyBB8'
     end
 

@@ -4,7 +4,7 @@ local theme_path = gfs.get_configuration_dir() .. 'theme/'
 
 local theme = {}
 
-theme.font          = "Fira Code Nerd Font 14"
+theme.font          = "Fira Code 14"
 
 theme.useless_gap   = dpi(5)
 theme.border_width  = dpi(1)

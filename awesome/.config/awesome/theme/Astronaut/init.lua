@@ -1,15 +1,15 @@
 local theme_assets = require("beautiful.theme_assets")
 local gears = require("gears")
-local theme_path = gears.filesystem.get_configuration_dir() .. 'theme/'
+local theme_path = gears.filesystem.get_configuration_dir() .. 'theme/Astronaut/'
 
 local theme = {}
 
-theme.bg_normal     = "#0F161C"
+theme.bg_normal     = "#0F1620"
 theme.bg_focus      = "#0F161C"
 theme.bg_urgent     = "#ff0000"
 
-theme.fg_normal     = "#26A69A"
-theme.fg_focus      = "#12F4B4"
+theme.fg_normal     = "#407080"
+theme.fg_focus      = "#A27ABA"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#11161C"
 
@@ -17,17 +17,17 @@ theme.border_normal = "#273341"
 theme.border_focus  = theme.fg_focus
 theme.border_marked = "#91231c"
 
-theme.wallpaper = theme_path.."wallpapers/astronaut.jpg"
+theme.wallpaper = theme_path.."wallpaper.jpg"
 
 theme.bg_systray    = theme.bg_normal
 
 theme.taglist_bg_urgent = theme.bg_normal
 theme.taglist_fg_urgent = "#EF5350"
 theme.taglist_bg_empty = theme.bg_normal
-theme.taglist_fg_empty = "#004D40"
+theme.taglist_fg_empty = "#582266"
 theme.taglist_bg_focus =  theme.bg_focus
-theme.taglist_fg_focus =  "#B2DFDB"
-theme.taglist_fg_occupied = "#00897B"
+theme.taglist_fg_focus =  "#FF13E6"
+theme.taglist_fg_occupied = "#91318E"
 
 theme.tasklist_fg_minimize = theme.fg_focus
 theme.tasklist_bg_minimize   = theme.bg_normal
@@ -36,9 +36,15 @@ theme.hotkeys_fg = theme.fg_focus
 theme.hotkeys_label_fg = theme.bg_focus
 theme.hotkeys_modifiers_fg = theme.fg_urgent
 
-theme.volume_icon = theme_path .. "icons/volume-up-solid_cyan.svg"
-theme.cpu_icon = theme_path .. "icons/microchip-solid_cyan.svg"
-theme.ram_icon = theme_path .. "icons/memory-solid_cyan.svg"
+local icon_path = theme_path .. "icons/"
+
+theme.volume_icon = icon_path .. "volume.svg"
+theme.cpu_icon = icon_path .. "cpu.svg"
+theme.ram_icon = icon_path .. "ram.svg"
+
+theme.terminal_icon = icon_path .. "terminal.svg"
+theme.launch_icon = icon_path .. "rocket.svg"
+theme.utilities_icon = icon_path .. "gear.svg"
 
 -- Generate Awesome icon:
 local dpi = require("beautiful.xresources").apply_dpi

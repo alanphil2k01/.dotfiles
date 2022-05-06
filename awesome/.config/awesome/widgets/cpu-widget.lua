@@ -105,7 +105,7 @@ local function worker(args)
         step_width = step_width,
         step_spacing = step_spacing,
         widget = wibox.widget.graph,
-        -- color = "linear:0,0:0,20:0,#FF0000:0.3,#FFFF00:0.6," .. color
+        color = "linear:0,0:0,20:0,#FF0000:0.3,#FFFF00:0.6," .. color
     }
 
     local popup = awful.popup{

@@ -1,6 +1,6 @@
 local theme_assets = require("beautiful.theme_assets")
 local gears = require("gears")
-local theme_path = gears.filesystem.get_configuration_dir() .. 'theme/'
+local theme_path = gears.filesystem.get_configuration_dir() .. 'theme/Yoda/'
 
 local theme = {}
 
@@ -17,7 +17,7 @@ theme.border_normal = "#273341"
 theme.border_focus  = theme.fg_focus
 theme.border_marked = "#91231c"
 
-theme.wallpaper = theme_path.."wallpapers/StarWarsYoda.jpg"
+theme.wallpaper = theme_path.."wallpaper.jpg"
 
 theme.bg_systray    = theme.bg_normal
 
@@ -36,9 +36,15 @@ theme.hotkeys_fg = theme.fg_focus
 theme.hotkeys_label_fg = theme.bg_focus
 theme.hotkeys_modifiers_fg = theme.fg_urgent
 
-theme.volume_icon = theme_path .. "icons/volume-up-solid_cyan.svg"
-theme.cpu_icon = theme_path .. "icons/microchip-solid_cyan.svg"
-theme.ram_icon = theme_path .. "icons/memory-solid_cyan.svg"
+local icon_path = theme_path .. "icons/"
+
+theme.volume_icon = icon_path .. "volume.svg"
+theme.cpu_icon = icon_path .. "cpu.svg"
+theme.ram_icon = icon_path .. "ram.svg"
+
+theme.terminal_icon = icon_path .. "terminal.svg"
+theme.launch_icon = icon_path .. "rocket.svg"
+theme.utilities_icon = icon_path .. "gear.svg"
 
 -- Generate Awesome icon:
 local dpi = require("beautiful.xresources").apply_dpi

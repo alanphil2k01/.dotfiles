@@ -14,7 +14,7 @@ return {
   -- List of apps to start once on start-up
   run_on_start_up = {
     'picom -f -i 1.0 -m 1.0 -e 1.0 -b',
-    'nm-applet',
+    'nm-applet --indicator',
     'blueberry-tray',
   }
 }
