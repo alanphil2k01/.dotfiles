@@ -147,13 +147,13 @@ local globalkeys = gears.table.join(
               {description = "-10%", group = "hotkeys"}),
 
     -- ALSA volume control
-    awful.key({  }, "XF86AudioRaiseVolume", function () awful.spawn('amixer -D pulse sset Master 1%+') end,
+    awful.key({  }, "XF86AudioRaiseVolume", function () UpdateVolume(INC_VOLUME_CMD) end,
         {description = "volume up", group = "hotkeys"}),
-    awful.key({  }, "XF86AudioLowerVolume", function () awful.spawn('amixer -D pulse sset Master 1%-') end,
+    awful.key({  }, "XF86AudioLowerVolume", function () UpdateVolume(DEC_VOLUME_CMD) end,
         {description = "volume down", group = "hotkeys"}),
-    awful.key({  }, "XF86AudioMute", function () awful.spawn('amixer -D pulse set Master 1+ toggle') end,
+    awful.key({  }, "XF86AudioMute", function () UpdateVolume(TOG_VOLUME_CMD) end,
         {description = "toggle mute", group = "hotkeys"}),
-    awful.key({ altkey, "Control" }, "m", function () awful.spawn('amixer -D pulse set Master 1+ toggle') end,
+    awful.key({ altkey, "Control" }, "m", function () UpdateVolume(TOG_VOLUME_CMD) end,
         {description = "volume 100%", group = "hotkeys"}),
 
     -- playerctl

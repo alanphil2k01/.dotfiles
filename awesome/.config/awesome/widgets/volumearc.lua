@@ -14,10 +14,10 @@ local spawn = require("awful.spawn")
 local watch = require("awful.widget.watch")
 local wibox = require("wibox")
 
-local GET_VOLUME_CMD = 'amixer -D pulse sget Master'
-local INC_VOLUME_CMD = 'amixer -q -D pulse sset Master 5%+'
-local DEC_VOLUME_CMD = 'amixer -q -D pulse sset Master 5%-'
-local TOG_VOLUME_CMD = 'amixer -q -D pulse sset Master toggle'
+GET_VOLUME_CMD = 'amixer -D pulse sget Master'
+INC_VOLUME_CMD = 'amixer -D pulse sset Master 5%+'
+DEC_VOLUME_CMD = 'amixer -D pulse sset Master 5%-'
+TOG_VOLUME_CMD = 'amixer -D pulse sset Master toggle'
 
 local PATH_TO_ICON = "/usr/share/icons/Arc/status/symbolic/audio-volume-muted-symbolic.svg"
 
@@ -71,15 +71,18 @@ local function worker(args)
     end
 
     local button_press = args.button_press or  function(_, _, _, button)
-        if (button == 4) then awful.spawn(inc_volume_cmd, false)
-        elseif (button == 5) then awful.spawn(dec_volume_cmd, false)
-        elseif (button == 1) then awful.spawn(tog_volume_cmd, false)
+        if (button == 4) then UpdateVolume(inc_volume_cmd)
+        elseif (button == 5) then UpdateVolume(dec_volume_cmd)
+        elseif (button == 1) then UpdateVolume(tog_volume_cmd)
         end
+    end
 
-        spawn.easy_async(get_volume_cmd, function(stdout, stderr, exitreason, exitcode)
+    function UpdateVolume(cmd)
+        spawn.easy_async(cmd, function(stdout, stderr, exitreason, exitcode)
             update_graphic(volumearc, stdout, stderr, exitreason, exitcode)
         end)
     end
+
     volumearc:connect_signal("button::press", button_press)
 
     watch(get_volume_cmd, timeout, update_graphic, volumearc)
