@@ -1,3 +1,9 @@
 [submodule "nvim/.config/nvim"]
 	path = nvim/.config/nvim
 	url = https://github.com/alanphil2k01/vim-config.git
+[submodule "zsh/.config/zsh/fast-syntax-highlighting"]
+	path = zsh/.config/zsh/fast-syntax-highlighting
+	url = https://github.com/zdharma-continuum/fast-syntax-highlighting.git
+[submodule "zsh/.config/zsh/zsh-autosuggestions"]
+	path = zsh/.config/zsh/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
