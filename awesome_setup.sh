@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-declare -a dotfiles=("awesome" "zsh" "tmux" "bin" "profiles" "nvim")
+declare -a dotfiles=("awesome" "term" "zsh" "tmux" "bin" "profiles" "nvim")
 
 #cloning repo
 echo "Cloning Repository"
