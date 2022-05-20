@@ -110,7 +110,7 @@ function zle-line-init() {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
+bindkey -s '^f' 'tmux-sessionizer\n'
 
 bindkey '^[[P' delete-char
 
