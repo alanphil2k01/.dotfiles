@@ -26,6 +26,9 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 # start picom
 exec --no-startup-id picom
 
+# start caja
+exec --no-startup-id caja --no-desktop
+
 # start flameshot
 exec --no-startup-id flameshot
 

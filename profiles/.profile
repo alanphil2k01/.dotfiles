@@ -22,6 +22,16 @@ export PATH="$PATH:$GOROOT/bin"
 export GOPATH="$HOME/Projects/go"
 export PATH="$PATH:$GOPATH/bin"
 
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Android
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 # Other program settings:
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
 export LESS=-R
