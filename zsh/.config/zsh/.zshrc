@@ -17,7 +17,7 @@ zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 zstyle ':vcs_info:*' enable git cvs svn
 
 vcs_info_wrapper() {
-  vcs_info
+  vcs_info 2>/dev/null
   if [ -n "$vcs_info_msg_0_" ]; then
     echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
   fi
