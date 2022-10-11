@@ -29,8 +29,6 @@ exec --no-startup-id picom
 # start caja
 exec --no-startup-id caja --no-desktop
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -226,3 +224,7 @@ bindsym $mod+r mode "resize"
 #         status_command i3status
 #         tray_output none
 # }
+bindsym $mod+m exec mate-panel --replace
+bindsym $mod+Shift+m exec killall mate-panel
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
