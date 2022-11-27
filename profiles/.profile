@@ -25,6 +25,9 @@ export PATH="$PATH:$GOPATH/bin"
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Solana
+export PATH="/home/alan/.local/share/solana/install/active_release/bin:$PATH"
+
 # Android
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator

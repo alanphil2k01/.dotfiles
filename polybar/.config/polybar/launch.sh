@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
 # kill mate-panel
-mate-panel --replace&
-sleep .5
-killall mate-panel
+bash -c "mate-panel --replace && sleep .5 && killall mate-panel"&
 
 # Terminate already running bar instances
 # If all your bars have ipc enabled, you can use
