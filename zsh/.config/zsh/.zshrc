@@ -1,3 +1,4 @@
+export SHELL="/bin/zsh"
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
 
