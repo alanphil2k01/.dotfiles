@@ -37,4 +37,4 @@ xset r rate 300 50
 setxkbmap us -option caps:escape
 
 # Start Awesome WM
-exec awesome
+exec i3

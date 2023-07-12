@@ -5,8 +5,7 @@ export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="brave-browser"
-export READER="zathura"
-export AWESOMEWM_THEME="ReyBB8"
+export FILE_BROWSER="thunar"
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
