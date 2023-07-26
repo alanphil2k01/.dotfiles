@@ -200,3 +200,6 @@ lspconfig.pyright.setup (config())
 
 -- tailwindcss
 SetKeymap("n", "<Leader>,t", "<cmd>lua require'lspconfig'.tailwindcss.setup{}<CR>", { noremap = true})
+
+-- Svelte
+require'lspconfig'.svelte.setup{}

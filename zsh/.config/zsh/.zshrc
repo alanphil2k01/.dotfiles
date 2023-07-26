@@ -117,7 +117,10 @@ bindkey '^[[P' delete-char
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
+bindkey '^v' edit-command-line
+
+bindkey "^a" beginning-of-line
+bindkey "^e" end-of-line
 
 # Load syntax highlighting; should be last.
 source "$HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
