@@ -27,6 +27,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Solana
 export PATH="/home/alan/.local/share/solana/install/active_release/bin:$PATH"
 
+# Foundry
+export PATH="$PATH:/home/alan/.config/.foundry/bin"
+
 # Android
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
